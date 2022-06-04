@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
 public class SistemaTiendaElpirata {
 
     public static void main(String[] args) {
-        /*pruebas rapidas
+        
         Cliente [] cliente = new Cliente[3];
         cliente[0]=new Cliente("1","a","a","a","a","a");
-        cliente[1]=new Cliente("4","b","b","b","b","b");
+        cliente[1]=new Cliente("2","b","b","b","b","b");
         cliente[2]=new Cliente("3","c","c","c","c","c");
         CatalogoCliente catalogoCliente = new CatalogoCliente( );
         
@@ -31,7 +31,7 @@ public class SistemaTiendaElpirata {
         }
         else{
             JOptionPane.showMessageDialog(null, "no se encontro el cliente");
-        }*/
+        }
         
         
     }
