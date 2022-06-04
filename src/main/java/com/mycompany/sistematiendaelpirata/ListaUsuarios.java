@@ -33,13 +33,19 @@ public class ListaUsuarios implements Iterable<Usuario>{
     public Usuario getUsuario(String idUsuario){
         
         for(Iterator<Usuario> listaUsuarios = usuarios.iterator(); listaUsuarios.hasNext();){
-            Usuario usuario= listaUsuarios.next();
+            
+            Usuario usuario = listaUsuarios.next();
+            
             if(idUsuario.equals(usuario.getIdUsuario())){
+                
                 return usuario;
+                
             }
             
         }
+        
     return null;
+    
     }
 
     public ArrayList<Usuario> getUsuarios() {

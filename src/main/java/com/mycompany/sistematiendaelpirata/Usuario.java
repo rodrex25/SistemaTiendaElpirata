@@ -81,6 +81,22 @@ public class Usuario {
                 "\nTelefono: "+telefono;
     }
 
+    //equals
+    @Override
+    public boolean equals(Object object){
+         Usuario usuario = (Usuario)object;
+         
+         if(idUsuario != usuario.idUsuario){
+             
+             return false;
+         }
+         else{
+             return true;
+         }
+        
+        
+        
+    }
     
 
    
