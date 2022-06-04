@@ -32,7 +32,7 @@ public class SistemaTiendaElpirata {
         else{
             JOptionPane.showMessageDialog(null, "no se encontro el cliente");
         }*/
-        
+
         
     }
 }

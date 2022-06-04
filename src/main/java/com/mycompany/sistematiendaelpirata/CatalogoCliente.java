@@ -7,8 +7,6 @@ package com.mycompany.sistematiendaelpirata;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-
-
 /**
  *
  * @author gabre
@@ -16,7 +14,7 @@ import java.util.ArrayList;
 public class CatalogoCliente implements Iterable<Cliente> {
     
     
-    //attributos
+    //atributos
     private ArrayList <Cliente> clientes = new ArrayList <Cliente>();
     private Iterator<Cliente> iterator = clientes.iterator();
     

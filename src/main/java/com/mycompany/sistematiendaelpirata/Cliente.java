@@ -19,7 +19,7 @@ public class Cliente {
     private String nombreContactoCliente;
     private String telefonoContactoCliente;
     
-    //cosntructor
+    //constructor
 
     public Cliente(String idCliente, String razonSocial, String rfc, String direccionFiscal, String nombreContactoCliente, String telefonoContactoCliente) {
         this.idCliente = idCliente;
