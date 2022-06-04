@@ -31,6 +31,9 @@ public class CatalogoCliente implements Iterable<Cliente> {
         clientes.add( cliente );
     }
     
+    public void deleteCliente(Cliente cliente){
+        clientes.remove(cliente);
+    }
     public Cliente getCliente(String idCliente){
         
         for(Iterator<Cliente> listaClientes = clientes.iterator(); listaClientes.hasNext();){
