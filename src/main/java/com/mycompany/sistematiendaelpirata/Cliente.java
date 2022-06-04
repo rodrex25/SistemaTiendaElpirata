@@ -29,7 +29,11 @@ public class Cliente {
         this.nombreContactoCliente = nombreContactoCliente;
         this.telefonoContactoCliente = telefonoContactoCliente;
     }
+    //metodos
     
+    public String getData(){
+        return idCliente+"/"+razonSocial+"/"+rfc+"/"+direccionFiscal+"/"+ nombreContactoCliente+"/"+ telefonoContactoCliente+"\n";
+        }
     
     //getters
     

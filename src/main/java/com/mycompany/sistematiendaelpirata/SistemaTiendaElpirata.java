@@ -25,13 +25,20 @@ public class SistemaTiendaElpirata {
             catalogoCliente.addCliente(cliente[i]);
         
         }
+        JOptionPane.showMessageDialog(null, catalogoCliente.getListaClientes());
         
+        catalogoCliente.deleteCliente(catalogoCliente.getCliente("2"));
+        
+        JOptionPane.showMessageDialog(null, catalogoCliente.getListaClientes());
+        
+        /*
+        JOptionPane.showMessageDialog(null, catalogoCliente.getListaClientes());
         if(catalogoCliente.getCliente("2") != null){
             JOptionPane.showMessageDialog(null, catalogoCliente.getCliente("2").toString());
         }
         else{
             JOptionPane.showMessageDialog(null, "no se encontro el cliente");
-        }
+        }*/
         
         
     }
