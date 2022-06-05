@@ -17,16 +17,18 @@ public class CatalogoProveedor implements Iterable<Proveedor> {
     
     private ArrayList<Proveedor> proveedores;
     
-    //Constructor
+    //Métodos
 
     public CatalogoProveedor() {
         proveedores = new ArrayList<Proveedor>();
     }
     
-    //Métodos
-    
     public void addProveedor(Proveedor proveedor) {
         proveedores.add(proveedor);
+    }
+    
+    public void deleteProveedor(Proveedor proveedor) {
+        proveedores.remove(proveedor);
     }
     
     public Proveedor getProveedor(String idProveedor){
