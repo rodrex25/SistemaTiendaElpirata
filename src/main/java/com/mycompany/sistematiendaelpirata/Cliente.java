@@ -101,6 +101,7 @@ public class Cliente {
     //equals
     @Override
     public boolean equals(Object object){
+        
          Cliente cliente = (Cliente)object;
          
          if(idCliente != cliente.idCliente){
@@ -114,6 +115,8 @@ public class Cliente {
         
         
     }
+    
+    
     
     
 

@@ -80,6 +80,7 @@ public class Reporte {
             return false;
         }
         final Reporte other = (Reporte) obj;
+        
         return Objects.equals(this.idReporte, other.idReporte);
     }   
 }
