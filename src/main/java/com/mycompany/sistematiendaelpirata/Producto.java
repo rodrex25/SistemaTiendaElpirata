@@ -86,7 +86,6 @@ public class Producto {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -126,6 +125,7 @@ public class Producto {
                 "\nImpuesto: "+impuesto;
     }
     
+    //equals
     
     @Override
     public boolean equals(Object obj) {
@@ -141,8 +141,5 @@ public class Producto {
         final Producto other = (Producto) obj;
         return Objects.equals(this.idProducto, other.idProducto);
     }
-    
-    //equals
-
     
 }

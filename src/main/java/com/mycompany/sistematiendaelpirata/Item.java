@@ -42,18 +42,16 @@ public class Item {
     @Override
     public String toString() {
         
-        return  "\nProducto: "+
-                "\nNombre: "+producto.getNombre()+
-                "\nCantidad: "+cantidad;
-        
-        
+        return  "\nProducto: " +
+                "\nNombre: " + producto.getNombre()+
+                "\nCantidad: " + cantidad;
     }
     
     //equals
 
     @Override
     public boolean equals(Object obj) {
-        if (this.equals(obj)) {
+        if (this == obj) {
             return true;
         }
         if (obj == null) {
@@ -66,7 +64,6 @@ public class Item {
         
         return Objects.equals(this.producto, other.producto);
     }   
-    
     
     
 }
