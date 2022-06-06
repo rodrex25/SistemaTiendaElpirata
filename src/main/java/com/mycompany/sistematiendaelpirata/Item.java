@@ -15,11 +15,13 @@ public class Item {
     
     private int cantidad;
     private Producto producto;
+    private double total;
 
     //constructor
     public Item(int cantidad, Producto producto) {
         this.cantidad = cantidad;
         this.producto = producto;
+        total = producto.getPrecioUnitario()*cantidad;
         
     }
     //getters
@@ -30,6 +32,12 @@ public class Item {
     public Producto getProducto() {
         return producto;
     }
+
+    public double getTotal() {
+        return total;
+    }
+    
+    
     //seters
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
@@ -38,6 +46,11 @@ public class Item {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    
 
     @Override
     public String toString() {
