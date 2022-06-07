@@ -24,18 +24,19 @@ public class Producto {
     
     //cosntructor
 
-    public Producto(String idProducto, String nombre, String descripcion, double precUnitarioSinImpuestos, double impuestoUnitarioPagado, double precioUnitario, double precioUnitarioVenta, boolean impuesto) {
+    public Producto(String idProducto, String nombre, String descripcion, double precUnitarioSinImpuestos, double impuestoUnitarioPagado, double precioUnitarioVenta, boolean impuesto) {
         
         this.idProducto = idProducto;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.precUnitarioSinImpuestos = precUnitarioSinImpuestos;
         this.impuestoUnitarioPagado = impuestoUnitarioPagado;
-        this.precioUnitario = precioUnitario;
+        this.precioUnitario = precUnitarioSinImpuestos+impuestoUnitarioPagado;
         this.precioUnitarioVenta = precioUnitarioVenta;
         this.impuesto = impuesto;
         
     }
-    
+
     //metodo
     
     public String getData(){
@@ -48,8 +49,8 @@ public class Producto {
     public String getIdProducto() {
         return idProducto;
     }
-    
-    public String getNombre(){
+
+    public String getNombre() {
         return nombre;
     }
 
@@ -76,7 +77,7 @@ public class Producto {
     public boolean isImpuesto() {
         return impuesto;
     }
-    
+   
     //setters
 
     public void setIdProducto(String idProducto) {
@@ -141,5 +142,5 @@ public class Producto {
         final Producto other = (Producto) obj;
         return Objects.equals(this.idProducto, other.idProducto);
     }
-    
+   
 }

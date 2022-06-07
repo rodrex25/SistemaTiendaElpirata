@@ -54,7 +54,7 @@ public class Almacen implements Iterable<Item> {
     //equals
     
     @Override
-    public Iterator iterator() {
+    public Iterator<Item> iterator() {
         return items.iterator();
     }
     
