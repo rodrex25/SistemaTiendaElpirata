@@ -27,7 +27,7 @@ public class Factura {
     public String getIdFactura() {
         return idFactura;
     }
-
+    
     public Date getFechaEmision() {
         return fechaEmision;
     }
