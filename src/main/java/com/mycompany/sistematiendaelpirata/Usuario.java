@@ -18,7 +18,8 @@ public class Usuario {
     private String telefono;
     
     //constructor
-    public Usuario(String idUsuario, String usuario, String nombre, String telefono){this.idUsuario = idUsuario;
+    public Usuario(String idUsuario, String usuario, String nombre, String telefono){
+        this.idUsuario = idUsuario;
         this.usuario = usuario;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -27,8 +28,8 @@ public class Usuario {
     
     //metodos
     public String getData(){
-        return idUsuario+"/"+usuario+"/"+nombre+"/"+telefono+"\n";
-        }
+        return idUsuario+","+usuario+","+nombre+","+telefono+"\n";
+    }
     
     //getters
     

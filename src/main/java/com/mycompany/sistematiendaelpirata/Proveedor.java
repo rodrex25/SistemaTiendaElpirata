@@ -24,7 +24,7 @@ public class Proveedor {
     private String emailContactoProveedor;
     private String telContactoProveedor;
     
-    //Constructor
+    //Metodos
 
     public Proveedor(String idProvedor, String razonSocial, String rfc, String direccion, String tel, String fax, String nombreContactoProveedor, String emailContactoProveedor, String telContactoProveedor) {
         this.idProvedor = idProvedor;
@@ -36,6 +36,10 @@ public class Proveedor {
         this.nombreContactoProveedor = nombreContactoProveedor;
         this.emailContactoProveedor = emailContactoProveedor;
         this.telContactoProveedor = telContactoProveedor;
+    }
+
+    public String getData(){
+        return idProvedor+","+razonSocial+","+rfc+","+direccion+","+tel+","+fax+","+nombreContactoProveedor+","+emailContactoProveedor+","+telContactoProveedor+"\n";
     }
     
     //Getters

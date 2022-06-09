@@ -30,7 +30,12 @@ public class Cliente {
         this.telefonoContactoCliente = telefonoContactoCliente;
     }
     
-    
+
+    public String getData(){
+
+        return idCliente+","+razonSocial+","+rfc+","+direccionFiscal+","+nombreContactoCliente+","+telefonoContactoCliente+"\n";
+    }
+
     //getters
     
     public String getIdCliente() {

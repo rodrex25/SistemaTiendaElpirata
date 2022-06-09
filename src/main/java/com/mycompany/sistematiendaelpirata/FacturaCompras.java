@@ -14,23 +14,24 @@ public class FacturaCompras  extends Factura implements Iterable <Item>{
     
     
     private ArrayList<Item> items;
-    private double total;
     
     private Proveedor proveedor;
     private Date ingresoAlmacen;
     private String formaDePago;
+    private double total;
 
-    public FacturaCompras(String idFactura, Date fechaEmision, Proveedor proveedor, Date ingresoAlmacen, String formaDePago) {
-        
+    
+    public FacturaCompras(String idFactura, Date fechaEmision, Proveedor proveedor, Date ingresoAlmacen, String formaDePago, double total) {
         super(idFactura, fechaEmision);
-        idFactura = super.getIdFactura();
-        
         this.proveedor = proveedor;
         this.ingresoAlmacen = ingresoAlmacen;
         this.formaDePago = formaDePago;
+        this.total = total;
+
     }
     
     public String getData(){
+
             String resul = super.getIdFactura()+","+super.getFechaEmision()+","+ proveedor.getIdProvedor()+","+ingresoAlmacen+","+formaDePago+","+total;
             
         for(Iterator<Item> listaItems = items.iterator(); listaItems.hasNext();){
@@ -39,6 +40,11 @@ public class FacturaCompras  extends Factura implements Iterable <Item>{
         }
         return resul;
     }
+    /*v023,25/03/2020,24547,26/03/2020,tarjeta,4500,12554,50,233246,50
+
+     * for(mientras haya un next line)    
+     * additem(new Item(get.product(12554),10))
+    */
     
     public void addItem(Item item){
         items.add(item);
@@ -60,7 +66,7 @@ public class FacturaCompras  extends Factura implements Iterable <Item>{
 
     public double getTotal() {
         for(Iterator<Item> listaItems = items.iterator(); listaItems.hasNext();){
-            total=total+listaItems.next().getProducto().getPrecioUnitario();
+            total = total+listaItems.next().getProducto().getPrecioUnitario();
             
         }
         return total;

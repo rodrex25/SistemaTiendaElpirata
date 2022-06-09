@@ -40,8 +40,7 @@ public class Producto {
     //metodo
     
     public String getData(){
-    
-    return idProducto+"/"+descripcion+"/"+precUnitarioSinImpuestos+"/"+impuestoUnitarioPagado+"/"+precioUnitario+"/"+precioUnitarioVenta+"/"+impuesto+"\n";
+        return idProducto+","+nombre+","+descripcion+","+precUnitarioSinImpuestos+","+impuestoUnitarioPagado+","+precioUnitarioVenta+","+impuesto+"\n";
     }
     
     //getters

@@ -25,6 +25,10 @@ public class Item {
         
     }
     
+    public String getData(){
+        return producto.getIdProducto()+","+cantidad+"\n";
+    }
+
     //getters
     public int getCantidad() {
         return cantidad;
