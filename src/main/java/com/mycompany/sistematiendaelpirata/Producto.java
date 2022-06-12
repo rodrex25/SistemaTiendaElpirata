@@ -111,6 +111,7 @@ public class Producto {
     public String toString() {
         return "\nProducto: "+
                 "\nId: "+idProducto+
+                "\nProducto Nombre: "+nombre+
                 "\nPrecio Unitario Sin Impuesto: "+precUnitarioSinImpuestos+
                 "\nImpuesto Unitario Pagado: "+impuestoUnitarioPagado+
                 "\nPrecio Unitario: "+precioUnitario+

@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistematiendaelpirata;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -74,8 +75,8 @@ public class FacturaVentas implements Iterable<Item>{
 
     public Double getTotal() {
         total = 0.0;
-        for(Iterator<Item> listaItems = items.iterator(); listaItems.hasNext();){
-            total = total + (listaItems.next().getProducto().getPrecioUnitarioVenta() * listaItems.next().getCantidad());
+        for(Item item: items){
+            total = total + (item.getCantidad()*item.getProducto().getPrecioUnitarioVenta());
             
         }
         return total;
@@ -120,11 +121,12 @@ public class FacturaVentas implements Iterable<Item>{
     
     @Override
     public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         
         String resu =  "\nFactura de venta: " +
                 "\nID: " + idFactura +
                 
-                "\nFecha de emision: " + fechaEmision +
+                "\nFecha de emision: " + sdf.format(fechaEmision) +
                 "\nID del cliente: " + cliente.getIdCliente() +
                 "\nNombre del cliente: " + cliente.getNombreContactoCliente() +
                 "\nDireccion de envio: " + direccionEnvio+

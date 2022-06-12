@@ -75,7 +75,12 @@ public class SistemaTiendaElpirata {
                 *********************************************************************
                 """);
 
+
         
+
+        sistemaTiendaElpirata.principal();
+
+       
        
                 
         
@@ -113,7 +118,7 @@ public class SistemaTiendaElpirata {
         res += "\n[3] Reporte de Inventarios";
         res += "\n[4] Reporte de Compras";
         res += "\n[5] Reporte de Ventas";
-        res += "\n[6] Facturar venta";
+        res += "\n[6] Facturar Venta";
         res += "\n[7] Facturar Compra";
         res += "\n[8] Modificar factura de venta";
         res += "\n[9] Movimientos extraordinarios";
@@ -169,10 +174,10 @@ public class SistemaTiendaElpirata {
             case 2: {
                 while(true) {
                 
-                System.out.println("Ingrese la fecha inicial del periodo (dd/MM/aaaa)");
+                System.out.println("Ingrese la fecha inicial del periodo (dd-MM-yyyy)");
                 String x = stdIn.nextLine();
                 
-                System.out.println("Ingrese la fecha final del periodo (dd/MM/aaaa)");
+                System.out.println("Ingrese la fecha final del periodo (dd-MM-yyyy)");
                 String y = stdIn.nextLine();
                 Date fechaX = null;
                 Date fechaY = null;
@@ -214,9 +219,9 @@ public class SistemaTiendaElpirata {
             case 2: {
                 while(true) {
                 try {
-                    System.out.println("Ingrese la fecha inicial del periodo (dd/MM/aaaa)");
+                    System.out.println("Ingrese la fecha inicial del periodo (dd-MM-yyyy)");
                     Date fechaInicial = new SimpleDateFormat("dd-MM-yyyy").parse(stdIn.nextLine());
-                    System.out.println("Ingrese la fecha final del periodo (dd/MM/aaaa)");
+                    System.out.println("Ingrese la fecha final del periodo (dd-MM-yyyy)");
                     Date fechaFinal = new SimpleDateFormat("dd-MM-yyyy").parse(stdIn.nextLine());
                     
                     System.out.println(registroDeFacturas.getFacturasVentaPeriodo(fechaInicial, fechaFinal));
@@ -243,10 +248,10 @@ public class SistemaTiendaElpirata {
         String direccionEnvio;
         String idProducto;
         int cantidad;
-        String decision;
+        int decision;
         
         while(true){
-        System.out.println("Ingrese la fecha de venta en el formato dd/mm/aaaa");
+        System.out.println("Ingrese la fecha de venta en el formato dd-MM-yyyy");
         
         try{
             date = stdIn.nextLine();
@@ -308,9 +313,11 @@ public class SistemaTiendaElpirata {
                 }
                              
                 System.out.println("¿Desea agregar otro producto?\n[1]Si\n[2]No");
-                decision = stdIn.nextLine();
+                decision = Integer.parseInt(stdIn.nextLine());
                  
-                if(decision != "1"){
+                if(decision == 1){
+                   
+                }else{
                     break;
                 }
                  
@@ -345,7 +352,7 @@ public class SistemaTiendaElpirata {
         String idProducto;
 
         while(true){
-            System.out.println("Ingrese la fecha de emision en el formato dd/mm/aaaa :>");
+            System.out.println("Ingrese la fecha de emision en el formato dd-mm-aaaa :>");
             
             try{
                 date = stdIn.nextLine();
@@ -378,7 +385,7 @@ public class SistemaTiendaElpirata {
         }
 
         while(true){
-            System.out.println("Ingrese la fecha de ingreso al almacen en el formato dd/mm/aaaa :>");
+            System.out.println("Ingrese la fecha de ingreso al almacen en el formato dd-mm-aaaa :>");
             
             try{
                 date = stdIn.nextLine();
@@ -566,9 +573,9 @@ public class SistemaTiendaElpirata {
 
             try {
             
-                System.out.println("Ingrese la fecha inicial del periodo (dd/MM/aaaa)");
+                System.out.println("Ingrese la fecha inicial del periodo (dd-MM-yyyy)");
                 fechaInicial = new SimpleDateFormat("dd-MM-yyyy").parse(stdIn.nextLine());
-                System.out.println("Ingrese la fecha final del periodo (dd/MM/aaaa)");
+                System.out.println("Ingrese la fecha final del periodo (dd-MM-yyyy)");
                 fechaFinal = new SimpleDateFormat("dd-MM-yyyy").parse(stdIn.nextLine());
             
                 facturaVentas = registroDeFacturas.getFacturasVentaPeriodo(fechaInicial, fechaFinal);
@@ -862,7 +869,6 @@ public class SistemaTiendaElpirata {
                 itemFV.put("idItem", item.getProducto().getIdProducto());
                 
                 itemsVenta.add(itemFV);
-                System.out.println("a");
                 
             }
             
@@ -904,7 +910,6 @@ public class SistemaTiendaElpirata {
                 itemFC.put("idItem", item.getProducto().getIdProducto());
                 
                 itemsCompra.add(itemFC);
-                System.out.println("a");
                 
             }
             
@@ -1080,7 +1085,6 @@ public class SistemaTiendaElpirata {
             JSONArray listaFacturaCompra = (JSONArray) obj; 
             for(Object facturaCompra: listaFacturaCompra){
                 getFacturaCompraJSON((JSONObject) facturaCompra);
-                System.out.println("a");
             }
         
         } catch(FileNotFoundException e) {

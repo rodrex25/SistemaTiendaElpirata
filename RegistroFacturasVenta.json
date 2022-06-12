@@ -1,1 +1,1 @@
-[]
+[{"FacturaVenta":{"cliente":"22222","total":125.0,"idFactura":"v34070","fechaEmision":"02-02-2002","direccionEnvio":"tamaulipas","items":[{"cantidad":2,"idItem":"002"},{"cantidad":5,"idItem":"003"}]}}]

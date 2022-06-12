@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.sistematiendaelpirata;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -79,8 +80,8 @@ public class FacturaCompras implements Iterable<Item>{
 
     public double getTotal() {
         total = 0.0;
-        for(Iterator<Item> listaItems = items.iterator(); listaItems.hasNext();){
-            total = total + (listaItems.next().getProducto().getPrecioUnitario() * listaItems.next().getCantidad());
+        for(Item item: items){
+            total = total + (item.getCantidad()*item.getProducto().getPrecioUnitario());
             
         }
         return total;
@@ -132,27 +133,28 @@ public class FacturaCompras implements Iterable<Item>{
         this.formaDePago = formaDePago;
     }
 
+    //toString
+
     @Override
     public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         
         String resu = 
                 "\nFactura de compra" +
-                "\nId Factura: "+idFactura+
-                "\nFecha de Emision: "+fechaEmision+
-                "\nId Proveedor: "+proveedor.getIdProvedor()+
-                "\nNombre Proveedor: "+proveedor.getNombreContactoProveedor()+
-                "\nFecha de ingreso al Almacen: "+ingresoAlmacen+
-                "\nForma de pago: "+formaDePago+
-                "\nProductos Comprados: \n";
+                "\nId Factura: "+ idFactura +
+                "\nFecha de Emision: "+ sdf.format(fechaEmision) +
+                "\nId Proveedor: "+ proveedor.getIdProvedor() +
+                "\nNombre Proveedor: "+ proveedor.getNombreContactoProveedor() +
+                "\nFecha de ingreso al Almacen: "+ sdf.format(ingresoAlmacen) +
+                "\nForma de pago: "+ formaDePago +
+                "\nProductos Comprados:\n";
         
                 resu = resu + items;
         
         return  resu;
     }
-    
-    
-    
-    
+
+    //iterator
 
     @Override
     public Iterator<Item> iterator() {
