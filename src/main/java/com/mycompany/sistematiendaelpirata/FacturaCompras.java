@@ -4,17 +4,20 @@
  */
 package com.mycompany.sistematiendaelpirata;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 /**
  *
  * @author gabre
  */
-public class FacturaCompras  extends Factura implements Iterable <Item>{
+public class FacturaCompras implements Iterable<Item>{
     
+    private ArrayList<Item> items= new ArrayList<Item>();
     
-    private ArrayList<Item> items;
-    
+    private String idFactura;
+    private Date fechaEmision;
     private Proveedor proveedor;
     private Date ingresoAlmacen;
     private String formaDePago;
@@ -22,7 +25,8 @@ public class FacturaCompras  extends Factura implements Iterable <Item>{
 
     
     public FacturaCompras(String idFactura, Date fechaEmision, Proveedor proveedor, Date ingresoAlmacen, String formaDePago, double total) {
-        super(idFactura, fechaEmision);
+        this.idFactura = idFactura;
+        this.fechaEmision = fechaEmision;
         this.proveedor = proveedor;
         this.ingresoAlmacen = ingresoAlmacen;
         this.formaDePago = formaDePago;
@@ -30,15 +34,32 @@ public class FacturaCompras  extends Factura implements Iterable <Item>{
 
     }
     
-    public String getData(){
+    public String getDateEmision(){
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(fechaEmision);
 
-            String resul = super.getIdFactura()+","+super.getFechaEmision()+","+ proveedor.getIdProvedor()+","+ingresoAlmacen+","+formaDePago+","+total;
-            
-        for(Iterator<Item> listaItems = items.iterator(); listaItems.hasNext();){
-            
-            resul = resul+","+listaItems.next().getProducto().getIdProducto()+","+listaItems.next().getCantidad();
-        }
-        return resul;
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        String date1 = day+"-"+month+"-"+year;
+
+       
+        return date1;
+    }
+    
+    public String getDateingresoAlmacen(){
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(ingresoAlmacen);
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        String date1 = day+"-"+month+"-"+year;
+
+       
+        return date1;
     }
     /*v023,25/03/2020,24547,26/03/2020,tarjeta,4500,12554,50,233246,50
 
@@ -52,24 +73,25 @@ public class FacturaCompras  extends Factura implements Iterable <Item>{
     
     //getters
 
-    public String getIdFactura() {
-        return super.getIdFactura();
-    }
-    
-    public Date getfechaEmision(){
-        return super.getFechaEmision();
-    }
-
     public ArrayList<Item> getItems() {
         return items;
     }
 
     public double getTotal() {
+        total = 0.0;
         for(Iterator<Item> listaItems = items.iterator(); listaItems.hasNext();){
-            total = total+listaItems.next().getProducto().getPrecioUnitario();
+            total = total + (listaItems.next().getProducto().getPrecioUnitario() * listaItems.next().getCantidad());
             
         }
         return total;
+    }
+
+    public String getIdFactura() {
+        return idFactura;
+    }
+    
+    public Date getFechaEmision() {
+        return fechaEmision;
     }
 
     public Proveedor getProveedor() {
@@ -84,13 +106,14 @@ public class FacturaCompras  extends Factura implements Iterable <Item>{
         return formaDePago;
     }
     
-    
-    
     //setters
 
     public void setIdFactura(String idFactura) {
-        super.setIdFactura(idFactura);
-        
+        this.idFactura = idFactura;
+    }
+
+    public void setFechaEmision(Date fechaEmision) {
+        this.fechaEmision = fechaEmision;
     }
 
     public void setTotal(double total) {
@@ -108,28 +131,21 @@ public class FacturaCompras  extends Factura implements Iterable <Item>{
     public void setFormaDePago(String formaDePago) {
         this.formaDePago = formaDePago;
     }
-    
-    public void setfechaEmision(Date FechaEmision){
-        super.setFechaEmision(FechaEmision);
-    }
 
     @Override
     public String toString() {
         
         String resu = 
                 "\nFactura de compra" +
-                "\nId Factura: "+super.getIdFactura()+
-                "\nFecha de Emision: "+super.getFechaEmision()+
+                "\nId Factura: "+idFactura+
+                "\nFecha de Emision: "+fechaEmision+
                 "\nId Proveedor: "+proveedor.getIdProvedor()+
                 "\nNombre Proveedor: "+proveedor.getNombreContactoProveedor()+
                 "\nFecha de ingreso al Almacen: "+ingresoAlmacen+
                 "\nForma de pago: "+formaDePago+
                 "\nProductos Comprados: \n";
         
-         for(Iterator<Item> listaItems = items.iterator(); listaItems.hasNext();){
-            resu = resu + listaItems.next().getProducto().getIdProducto()+" "+listaItems.next().getProducto().getNombre()+" "+listaItems.next().getCantidad()+"\n";
-            
-        }
+                resu = resu + items;
         
         return  resu;
     }

@@ -26,6 +26,10 @@ public class CatalogoProducto implements Iterable<Producto> {
     public void addProducto(Producto product) {
         productos.add(product);
     }
+    
+    public ArrayList<Producto> getListaProductos(){
+        return productos;
+    }
 
     public Producto getProducto(String idProducto) {
         for (Iterator<Producto> listProduct = productos.iterator(); listProduct.hasNext();){

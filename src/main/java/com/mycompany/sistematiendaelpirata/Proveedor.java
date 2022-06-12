@@ -37,10 +37,6 @@ public class Proveedor {
         this.emailContactoProveedor = emailContactoProveedor;
         this.telContactoProveedor = telContactoProveedor;
     }
-
-    public String getData(){
-        return idProvedor+","+razonSocial+","+rfc+","+direccion+","+tel+","+fax+","+nombreContactoProveedor+","+emailContactoProveedor+","+telContactoProveedor+"\n";
-    }
     
     //Getters
 

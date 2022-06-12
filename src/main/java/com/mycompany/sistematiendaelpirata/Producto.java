@@ -36,12 +36,6 @@ public class Producto {
         this.impuesto = impuesto;
         
     }
-
-    //metodo
-    
-    public String getData(){
-        return idProducto+","+nombre+","+descripcion+","+precUnitarioSinImpuestos+","+impuestoUnitarioPagado+","+precioUnitarioVenta+","+impuesto+"\n";
-    }
     
     //getters
 
@@ -110,7 +104,6 @@ public class Producto {
     public void setImpuesto(boolean impuesto) {
         this.impuesto = impuesto;
     }
-    
     
     //toString
 

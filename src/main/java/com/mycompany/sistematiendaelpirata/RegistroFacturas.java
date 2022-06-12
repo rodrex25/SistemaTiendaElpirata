@@ -12,88 +12,106 @@ import java.util.Iterator;
  *
  * @author JuanA
  */
-public class RegistroFacturas implements Iterable<Factura> {
+public class RegistroFacturas implements Iterable <Factura>{
     
     //Atributos
     
-    private ArrayList<Factura> facturas;
+    private ArrayList<FacturaVentas> facturasVentas;
+    private ArrayList<FacturaCompras> facturasCompras;
+
+    //constuctor
+
+    public RegistroFacturas(){
+
+        facturasVentas = new ArrayList<FacturaVentas>();
+        facturasCompras = new  ArrayList<FacturaCompras>();
+
+    }
+
+    //metodos
+
+    public void addFacturaVenta(FacturaVentas facturaVenta){
+        facturasVentas.add(facturaVenta);
+    }
+
+    public void addFacturaCompras(FacturaCompras facturasCompra){
+        facturasCompras.add(facturasCompra);
+    }
     
-    //Metodos
-    public ArrayList<Factura> getFacturasCompra() {
+    public  ArrayList<FacturaVentas> getListaFacturaVentas(){
+        return facturasVentas;
+    }
+    
+    public ArrayList<FacturaCompras> getListaFacturaCompras(){
+        return facturasCompras;
+    }
+    
+    public FacturaCompras getFacturaCompra(String idFacturaCompra){
+        for (Iterator<FacturaCompras> listcompras = facturasCompras.iterator(); listcompras.hasNext();){
+            
+        FacturaCompras facturaCompra = listcompras.next();
+            
+            if (facturaCompra.getIdFactura().equals(idFacturaCompra)) {
+                
+                return facturaCompra;
+                
+            }
+        }
+        return null;
+    }
+    
+    public ArrayList<FacturaCompras> getFacturasCompraPeriodo(Date fechaInicial, Date fechaFinal) {
+        
+        ArrayList<FacturaCompras> facturasCompra = new ArrayList<FacturaCompras>(); 
+        for(Iterator<FacturaCompras> listcompras = facturasCompras.iterator(); listcompras.hasNext();) {   
 
-        ArrayList<Factura> facturasCompra = new ArrayList<Factura>(); 
-
-        for(Iterator<Factura> listFactura = facturas.iterator(); listFactura.hasNext();){
-
-            Factura factura = listFactura.next(); 
-
-            if(factura.getIdFactura().startsWith("c")){
-
-                facturasCompra.add(factura);
+            FacturaCompras facturaCompra = listcompras.next();
+               if ((facturaCompra.getFechaEmision().before(fechaFinal)&&(facturaCompra.getFechaEmision().after(fechaInicial)))) {
+                    facturasCompra.add(facturaCompra);
+                }
 
             }
-
-        }
+        
         return facturasCompra;
 
-        
     }
-    //CREATE TABLE TABLA1 {FECHA DATE, NOMBRE VARCHAR(30)}
 
-    public ArrayList<Factura> getFacturasCompraPeriodo(Date fechaInicial, Date fechaFinal) {
-        
-        ArrayList<Factura> facturasCompra = new ArrayList<Factura>(); 
-        for(Iterator<Factura> listFactura = facturas.iterator(); listFactura.hasNext();) {
+    public FacturaVentas getFacturaVentas(String idFacturaVenta){
+    
+        for (Iterator<FacturaVentas> listVentas = facturasVentas.iterator(); listVentas.hasNext();){
             
-            Factura factura = listFactura.next();
-               if ((factura.getFechaEmision().before(fechaFinal)&&(factura.getFechaEmision().after(fechaInicial)))) {
-                     facturasCompra.add(factura);
+        FacturaVentas facturaVenta = listVentas.next();
+            
+            if (facturaVenta.getIdFactura().equals(idFacturaVenta)) {
+                
+                return facturaVenta;
+                
+            }
+        }
+        return null;
+    
+    }
+
+    public ArrayList<FacturaVentas> getFacturasVentaPeriodo(Date fechaInicial, Date fechaFinal) {
+        
+        ArrayList<FacturaVentas> facturasVenta = new ArrayList<FacturaVentas>(); 
+        for(Iterator<FacturaVentas> listVentas = facturasVenta.iterator(); listVentas.hasNext();) {   
+
+            FacturaVentas facturaVenta = listVentas.next();
+               if ((facturaVenta.getFechaEmision().before(fechaFinal)&&(facturaVenta.getFechaEmision().after(fechaInicial)))) {
+                    facturasVenta.add(facturaVenta);
                 }
+
             }
         
-        return null;
-    }
+        return facturasVenta;
 
-    public Factura getFacturasVenta() {
-        for(Iterator<Factura> listFactura = facturas.iterator(); listFactura.hasNext();){
-            Factura factura = listFactura.next();
-            if(factura.getIdFactura().startsWith("v")){
-                return factura;
-            }
-        }
-        return null;
-
-    }
-    
-    public RegistroFacturas() {
-        facturas = new ArrayList<Factura>();
-    }
-    
-    public void addFactura(Factura factura) {
-        facturas.add(factura);
-    }
-    
-    public void deleteFactura(Factura factura) {
-        facturas.remove(factura);
-    }
-    
-    public Factura getFactura (String id) {
-        for (Iterator<Factura> listFactura = facturas.iterator(); listFactura.hasNext();){
-            Factura factura = listFactura.next();
-            if (factura.getIdFactura().equals(id)) {
-                return factura;
-            }
-        }
-        return null;
-
-    }
-
-    public ArrayList<Factura> getFacturas() {
-        return facturas;
     }
 
     @Override
     public Iterator<Factura> iterator() {
-        return facturas.iterator();
+        // TODO Auto-generated method stub
+        return null;
     }
+    
 }

@@ -4,6 +4,8 @@
  */
 package com.mycompany.sistematiendaelpirata;
 
+import java.util.Objects;
+
 /**
  *
  * @author gabre
@@ -23,12 +25,6 @@ public class Usuario {
         this.usuario = usuario;
         this.nombre = nombre;
         this.telefono = telefono;
-    }
-    
-    
-    //metodos
-    public String getData(){
-        return idUsuario+","+usuario+","+nombre+","+telefono+"\n";
     }
     
     //getters
@@ -83,7 +79,8 @@ public class Usuario {
     }
 
     //equals
-    @Override
+    
+   /*@Override
     public boolean equals(Object object){
          Usuario usuario = (Usuario)object;
          
@@ -93,11 +90,28 @@ public class Usuario {
          }
          else{
              return true;
-         }
-        
-        
-        
+         }}*/
+
+    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        return Objects.equals(this.idUsuario, other.idUsuario);
     }
+        
+        
+        
+    
     
 
    

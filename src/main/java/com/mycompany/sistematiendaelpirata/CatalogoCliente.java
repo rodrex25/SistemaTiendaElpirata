@@ -15,12 +15,12 @@ public class CatalogoCliente implements Iterable<Cliente> {
     
     
     //atributos
-    private ArrayList <Cliente> clientes = new ArrayList <Cliente>();
-    private Iterator<Cliente> iterator = clientes.iterator();
+    private ArrayList <Cliente> clientes;
     
     
     //constructor
     public CatalogoCliente(){
+        clientes = new ArrayList <Cliente>();
     }
     
     //metodos
@@ -48,7 +48,6 @@ public class CatalogoCliente implements Iterable<Cliente> {
     public ArrayList<Cliente> getListaClientes() {
         return clientes;
     }
-    
     
      
     //sobreescritos

@@ -21,12 +21,8 @@ public class Item {
     public Item(int cantidad, Producto producto) {
         this.cantidad = cantidad;
         this.producto = producto;
-        total = producto.getPrecioUnitario()*cantidad;
+        total = 0;
         
-    }
-    
-    public String getData(){
-        return producto.getIdProducto()+","+cantidad+"\n";
     }
 
     //getters
@@ -39,6 +35,7 @@ public class Item {
     }
     
     public double getTotal() {
+        total = producto.getPrecioUnitario()*cantidad; 
         return total;
     }
     

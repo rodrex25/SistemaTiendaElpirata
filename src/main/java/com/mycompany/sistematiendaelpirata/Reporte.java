@@ -26,10 +26,6 @@ public class Reporte {
         this.descripcion = descripcion;
     }
 
-    public String getData(){
-        return idReporte+","+usuario+","+descripcion+"\n";
-    }
-
     //Getters
     
     public String getIdReporte() {

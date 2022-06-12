@@ -31,7 +31,7 @@ public class Almacen implements Iterable<Item> {
             items.add(item);
         }
     }
-    
+
     public void deleteItem(Item item) {
         items.remove(item);
     }

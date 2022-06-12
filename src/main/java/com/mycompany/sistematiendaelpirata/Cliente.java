@@ -29,12 +29,6 @@ public class Cliente {
         this.nombreContactoCliente = nombreContactoCliente;
         this.telefonoContactoCliente = telefonoContactoCliente;
     }
-    
-
-    public String getData(){
-
-        return idCliente+","+razonSocial+","+rfc+","+direccionFiscal+","+nombreContactoCliente+","+telefonoContactoCliente+"\n";
-    }
 
     //getters
     
